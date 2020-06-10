@@ -1,21 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 
 
-function Picture(){
-    // const [image, setImage] = useState('');
-
-    // axios.get('https://source.unsplash.com/random/800x600')
-    //     .then( res => {
-    //         debugger
-    //     })
-    //     .catch( err =>{
-    //         debugger
-    //     })
-
+function Picture(props){
+    
     return(
         <div>
-            <img src="https://source.unsplash.com/random/800x600" alt=""/>
+            <img src={props.photoUrl} alt=""/>
         </div>
     )
 }

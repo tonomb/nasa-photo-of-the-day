@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function Heading(){
+function Heading(props){
 
     return (
-        <h1>NASA Photo of the Day</h1>
+    <h1>{props.photoTitle}</h1>
     );
 }
 

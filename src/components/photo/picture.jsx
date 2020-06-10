@@ -1,11 +1,12 @@
 import React from 'react';
+import './picture.css'
 
 function Picture(props){
     
     return(
         <div>
            {(!props.photoUrl) && <h3>Loading...</h3>}
-            <img src={props.photoUrl} alt=""/>
+            <img className="picture" src={props.photoUrl} alt=""/>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './heading.css'
 
 function Heading(props){
 
@@ -22,6 +23,7 @@ function Heading(props){
             <h1>{props.photoTitle}</h1>
             <form action="" onSubmit={handleDateChange}>
                 <input 
+                className='date-input'
                 type="text" 
                 placeholder={props.currentDate}
                 onChange={handleInput}/>

@@ -1,11 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-
 
 function Picture(props){
     
     return(
         <div>
+           {(!props.photoUrl) && <h3>Loading...</h3>}
             <img src={props.photoUrl} alt=""/>
         </div>
     )

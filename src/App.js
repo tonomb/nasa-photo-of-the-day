@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import styled from 'styled-components';
 
 import ImageContainer from './components/picture'
 import Calendar from './components/calendar.jsx';
@@ -7,12 +8,21 @@ import Descritpion from './components/description.jsx'
 import axios from "axios";
 import { API_KEY, BASE_URL } from './constants/';
 
+
+
+const Button = styled.button`
+    position:absolute;
+    bottom: 60px;
+    right: 60px;
+`
+
 function App() {
 
   const [photoOfDay, setPhotoOfDay] = useState([]);
   const [date, setDate] = useState()
+  const [contentDisplay, setContentDisplay] = useState(true)
  
-  console.log(date);
+  console.log(contentDisplay);
   
   useEffect(()=>{
 
@@ -20,7 +30,6 @@ function App() {
       axios.get(`${BASE_URL}/apod?api_key=${API_KEY}&date=${date}`)
       .then( res => {
         setPhotoOfDay(res.data)
-        console.log(res.data)
       })
       .catch(err =>{
         console.log(err);
@@ -31,7 +40,6 @@ function App() {
       axios.get(`${BASE_URL}/apod?api_key=${API_KEY}`)
       .then( res => {
         setPhotoOfDay(res.data)
-        console.log(res.data)
       })
       .catch(err =>{
         console.log(err);
@@ -42,13 +50,17 @@ function App() {
     
   },[date])
 
+  function enableFullScreen(){
+    setContentDisplay(!contentDisplay)
+  }
 
   
   return (
     <ImageContainer source={photoOfDay.hdurl}>
-      <Calendar currentDate={photoOfDay.date} setNewDate={setDate}/>
-      <Title photoTitle={photoOfDay.title}></Title>
-      {/* <Descritpion photoDetails={photoOfDay} /> */}
+      <Calendar currentDate={photoOfDay.date} setNewDate={setDate} displayState={contentDisplay}/>
+      <Title photoTitle={photoOfDay.title} displayState={contentDisplay}></Title>
+      <Descritpion photoDetails={photoOfDay} displayState={contentDisplay} />
+      <Button onClick={enableFullScreen}>{contentDisplay ? 'Full Screen' : 'Show Content'}</Button>
     </ImageContainer>
   );
 }

@@ -9,16 +9,17 @@ const StyledTitle = styled.h1`
     background-color: white;
     padding: 16px;
     width: max-content;
-    opacity: .2;
+    opacity: .6;
     margin: 250px auto 0;
+    border-radius: 8px;
+    display: ${props => props.displayState  ?'block' : 'none'};
 
 `
 
 function Description(props) {
-
-
+    const {displayState} = props
     return(
-    <StyledTitle>{props.photoTitle}</StyledTitle>
+    <StyledTitle displayState={displayState}>{props.photoTitle}</StyledTitle>
     )
 }
 

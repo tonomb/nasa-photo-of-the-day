@@ -3,9 +3,11 @@ import styled from 'styled-components'
 
 
 const StyledDiv = styled.div`
-    width: 300px;
+    width: 260px;
     background-color: white;
-    opacity: 0.3;
+    opacity: 0.6;
+    border-radius: 20px;
+    display: ${props => props.displayState  ?'block' : 'none'};
 `
 
 const StyledInput = styled.input`
@@ -19,11 +21,9 @@ const StyledInput = styled.input`
 `
 
 
-
-
 function Calendar(props){
 
-    const { setNewDate } = props;
+    const { setNewDate, displayState } = props;
 
     const [inputDate, setInputDate] = useState('')
 
@@ -38,7 +38,7 @@ function Calendar(props){
 
 
     return (
-        <StyledDiv>
+        <StyledDiv displayState={displayState}>
             <form styles={{opacity: '1'}} action="" onSubmit={handleDateChange}>
                 <StyledInput 
                 className='date-input'

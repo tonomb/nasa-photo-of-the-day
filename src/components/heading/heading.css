@@ -1,0 +1,14 @@
+.date-input{
+    font-size: 1.8rem;
+    text-align: center;
+    border: none;
+    color: darkslategray;
+    border-bottom: 1px solid grey;
+    outline: none;
+}
+
+.date-input:hover{
+    border-bottom: 5px solid darkslategray;
+}
+
+.date-input:

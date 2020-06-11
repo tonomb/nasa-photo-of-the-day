@@ -1,5 +1,4 @@
 import React from 'react'
-import './description.css'
 
 function Description(props){
     const {explanation, copyright} = props.photoDetails
@@ -10,6 +9,5 @@ function Description(props){
         </div>
     )
 }
-
 
 export default Description;

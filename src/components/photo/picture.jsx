@@ -1,14 +1,13 @@
+
 import React from 'react';
-import './picture.css'
+import styled from 'styled-components';
 
-function Picture(props){
-    
-    return(
-        <div>
-           {(!props.photoUrl) && <h3>Loading...</h3>}
-            <img className="picture" src={props.photoUrl} alt=""/>
-        </div>
-    )
-}
+const ImageContainer = styled.div `
+    background-image: url(${props => props.source});
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 100vh;
+  `
 
-export default Picture;
+  export default ImageContainer 

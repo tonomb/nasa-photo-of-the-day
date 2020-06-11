@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
-import "./App.css";
 
-import Heading from './components/heading/heading.jsx';
-import Picture from './components/photo/picture.jsx';
+import ImageContainer from './components/photo/picture'
+import Calendar from './components/calendar/calendar.jsx';
 import Descritpion from './components/description/description.jsx'
 import axios from "axios";
 import { API_KEY, BASE_URL } from './constants/';
@@ -43,12 +42,12 @@ function App() {
   },[date])
 
 
+  
   return (
-    <div className="App">
-      <Heading photoTitle={photoOfDay.title} currentDate={photoOfDay.date} setNewDate={setDate}/>
-      <Picture photoUrl={photoOfDay.hdurl}/>
-      <Descritpion photoDetails={photoOfDay} />
-    </div>
+    <ImageContainer source={photoOfDay.hdurl}>
+      <Calendar photoTitle={photoOfDay.title} currentDate={photoOfDay.date} setNewDate={setDate}/>
+      {/* <Descritpion photoDetails={photoOfDay} /> */}
+    </ImageContainer>
   );
 }
 
